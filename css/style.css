@@ -281,6 +281,13 @@ a {
   white-space: nowrap;
 }
 
+/* Cream outline keeps the About text legible where it crosses the river */
+.about,
+.copy {
+  -webkit-text-stroke: 6px var(--cream);
+  paint-order: stroke fill;
+}
+
 .copy {
   width: calc(536.22 * var(--u));
   font-size: calc(32 * var(--u));
