@@ -263,8 +263,8 @@ a {
   width: calc(2036.8 * var(--u));
 }
 
-/* Second, mirrored copy only used on mobile (see media query) */
-.river-art--mirror {
+/* Single combined river + path drawing, only used on mobile (see media query) */
+.river-mobile {
   display: none;
 }
 
@@ -593,150 +593,138 @@ a {
   .hero {
     display: flex;
     flex-direction: column;
-    padding: 12px 20px 0;
+    padding: 12px 20px 40px;
   }
   .title {
     order: 1;
-    font-size: clamp(110px, 33vw, 240px);
-    line-height: 0.95;
+    margin-bottom: -21px;
+    font-size: clamp(96px, 30.77vw, 240px);
+    line-height: 1.019;
   }
   .tagline {
     order: 2;
-    width: auto;
+    width: 9.68em;
     margin: 4px 0 0 6px;
-    font-size: clamp(22px, 5.6vw, 32px);
+    font-size: clamp(16px, 4.1vw, 24px);
   }
   .hero-img {
     order: 3;
     width: min(100%, 520px);
     height: auto;
-    aspect-ratio: 1711 / 1872;
-    margin: 28px auto 0;
-  }
-  .intro {
-    order: 4;
-    width: auto;
-    margin-top: 28px;
-    text-align: left;
-    font-size: clamp(22px, 5.6vw, 30px);
-    line-height: 1.2;
+    aspect-ratio: 350 / 352;
+    object-position: top;
+    margin: 0 auto;
   }
   .date {
-    order: 5;
+    order: 4;
     width: auto;
-    margin-top: 14px;
+    margin-top: 16px;
     text-align: left;
     font-size: clamp(20px, 5vw, 26px);
   }
+  .intro {
+    order: 5;
+    width: auto;
+    margin-bottom: 16px;
+    text-align: left;
+    font-size: clamp(16px, 4.1vw, 24px);
+    line-height: 1.2;
+  }
 
-  /* Story */
+  /* Story: photos overlap through negative margins that cancel the flex gap */
   .story {
+    --gap: 24px;
     position: relative;
     display: flex;
     flex-direction: column;
-    gap: 36px;
-    margin-top: 40px;
-    padding: 72px 20px 80px;
+    gap: var(--gap);
+    padding: 0 20px 80px;
     overflow: hidden;
-    container-type: inline-size;
   }
-  .story > *:not(.river-art) {
+  .river-art {
+    display: none;
+  }
+  .story > *:not(.river-mobile) {
     position: relative;
     inset: auto;
     z-index: 1;
   }
-  .story > .river-art {
-    --u: calc(170cqw / 1920);
+  .story > .river-mobile {
+    --s: calc(min(100cqw, 480px) / 390);
+    display: block;
     position: absolute;
     z-index: 0;
-    left: -14cqw;
-    top: 0;
-    width: calc(2164.1 * var(--u));
-    height: calc(2060 * var(--u));
-    transform: scaleY(var(--river-scale, 2.2));
-    transform-origin: 0 0;
-  }
-  .story > .river-art--mirror {
-    display: block;
-    left: 214cqw;
-    transform: scale(-1, var(--river-scale, 2.2));
-  }
-  .river-art .river,
-  .river-art .path {
-    position: absolute;
-  }
-  .river-art .river {
-    top: calc(62.41 * var(--u));
-    width: calc(2164.02 * var(--u));
-  }
-  .river-art .path {
-    left: calc(75.74 * var(--u));
-    width: calc(2036.8 * var(--u));
+    left: calc(-71.65 * var(--s));
+    top: calc(63 * var(--s));
+    width: calc(741.2 * var(--s));
+    height: calc(2129.64 * var(--s));
+    pointer-events: none;
   }
 
   .about {
     order: 1;
     width: auto;
     text-align: left;
-    font-size: clamp(56px, 15vw, 96px);
+    font-size: 58.5px;
     line-height: 1;
   }
   .copy {
     width: auto;
-    max-width: 34ch;
-    font-size: clamp(22px, 5.8vw, 30px);
+    font-size: clamp(20px, 5.13vw, 30px);
     line-height: 1.2;
+    text-align: left;
   }
   .copy--1 {
     order: 2;
   }
   .copy--2 {
     order: 6;
-    align-self: flex-end;
-    text-align: left;
+    font-size: clamp(22.62px, 5.8vw, 30px);
+    line-height: 1.2;
   }
   .art {
-    border-radius: 4px;
     height: auto;
+    border-radius: 4px;
   }
   .art--stitch {
     order: 3;
-    align-self: center;
-    width: 100%;
-    max-width: 560px;
-    aspect-ratio: 16 / 9;
+    align-self: flex-start;
+    width: 200px;
+    aspect-ratio: 200 / 196.9;
+    margin-bottom: calc(-41px - var(--gap));
   }
   .art--leaves {
     order: 4;
     align-self: flex-end;
-    width: 88%;
-    max-width: 500px;
+    width: 204.55px;
     aspect-ratio: 1280 / 853;
+    margin-bottom: calc(-41px - var(--gap));
   }
   .art--snakes {
     order: 5;
     align-self: flex-start;
-    width: 56%;
+    width: 196px;
     aspect-ratio: 1;
   }
   .art--yarn {
     order: 7;
     align-self: flex-start;
-    width: 48%;
+    width: 168px;
     aspect-ratio: 600 / 840;
+    margin-bottom: calc(-32px - var(--gap));
   }
   .art--crochet {
     order: 8;
-    align-self: flex-end;
-    width: 100%;
-    max-width: 560px;
-    aspect-ratio: 1400 / 867;
+    align-self: center;
+    width: 238px;
+    aspect-ratio: 238 / 216.8;
+    object-position: right center;
+    margin-bottom: calc(-32px - var(--gap));
   }
   .art--pink {
     order: 9;
-    align-self: flex-start;
-    width: 68%;
-    max-width: 380px;
+    align-self: flex-end;
+    width: 238px;
     aspect-ratio: 1;
   }
 
@@ -747,39 +735,54 @@ a {
     padding: 56px 20px 64px;
   }
   .contact-title {
+    order: 0;
     width: auto;
     font-size: clamp(64px, 18vw, 120px);
     line-height: 1.02;
   }
   .contact-info {
+    order: 1;
     width: auto;
     margin-top: 32px;
     font-size: clamp(22px, 5.8vw, 30px);
     line-height: 1.2;
   }
   .volunteer {
+    order: 2;
     width: auto;
-    max-width: 24ch;
     margin-top: 24px;
     font-size: clamp(26px, 7vw, 38px);
     line-height: 1.15;
   }
+  .btn-donate {
+    order: 3;
+    width: 100%;
+    height: auto;
+    margin-top: 32px;
+    padding: 18px 0 10px;
+    border-radius: 12px;
+    font-size: clamp(72px, 22vw, 120px);
+    line-height: 1;
+  }
   .slats {
+    order: 4;
     position: relative;
     inset: auto;
     width: 100%;
     max-width: 560px;
     height: auto;
     aspect-ratio: 759.84 / 499.12;
-    margin: 44px auto 0;
+    margin: 32px auto 0;
   }
   .committee {
+    order: 5;
     margin-top: 20px;
     text-align: center;
     font-size: clamp(24px, 6.4vw, 34px);
     white-space: normal;
   }
   .names {
+    order: 6;
     justify-content: center;
     gap: 16px;
     margin-top: 10px;
@@ -788,18 +791,8 @@ a {
   }
   .names li:nth-child(n) {
     width: auto;
-    flex: 1 1 0;
-    max-width: 130px;
-  }
-  .btn-donate {
-    width: 100%;
-    height: auto;
-    order: 10;
-    margin-top: 32px;
-    padding: 18px 0 10px;
-    border-radius: 12px;
-    font-size: clamp(72px, 22vw, 120px);
-    line-height: 1;
+    flex: 0 1 106px;
+    min-width: 0;
   }
 
   /* Coming soon */
