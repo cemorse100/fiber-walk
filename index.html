@@ -12,7 +12,7 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Brygada+1918:ital,wght@1,600&family=Instrument+Serif:ital@1&family=Londrina+Solid&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Brygada+1918:wght@600&family=Instrument+Serif:ital@1&family=Nunito+Sans:wght@400;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
@@ -23,17 +23,19 @@
 
       <header class="site-header">
         <a class="logo abs" href="index.html" aria-label="Newton Arts and Fiber Walk, home">
-          <img src="assets/img/logo.svg" width="356" height="138" alt="Newton Arts and Fiber Walk">
+          <img src="assets/img/logo.png" width="960" height="545" alt="Newton Arts and Fiber Walk">
         </a>
 
-        <nav class="site-nav abs" id="site-nav" aria-label="Primary">
-          <a href="#" aria-current="page" data-home>HOME</a>
-          <a href="support-us.html">SUPPORT US</a>
-          <a href="sponsors-donors.html">OUR SPONSORS &amp; DONORS</a>
-          <a href="call-for-artists.html">CALL FOR ARTISTS</a>
-        </nav>
-
-        <a class="btn-pill abs" href="https://www.paypal.com/ncp/payment/EUKH9AJTEJMZL" target="_blank" rel="noopener">DONATE</a>
+        <div class="header-right abs">
+          <nav class="site-nav" id="site-nav" aria-label="Primary">
+            <a href="#" aria-current="page" data-home>HOME</a>
+            <a href="support-us.html">SUPPORT US</a>
+            <a href="sponsors-donors.html">OUR SPONSORS &amp; DONORS</a>
+            <a href="call-for-artists.html">CALL FOR ARTISTS</a>
+            <a href="call-for-fiber-artists.html">CALL FOR FIBER ARTISTS</a>
+          </nav>
+          <a class="btn-pill" href="https://www.paypal.com/ncp/payment/EUKH9AJTEJMZL" target="_blank" rel="noopener">DONATE</a>
+        </div>
 
         <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="Menu">
           <svg class="icon-open" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M2 5h16M2 10h16M2 15h16"/></svg>
@@ -43,11 +45,11 @@
 
       <main id="main" style="display: contents">
         <section class="hero" aria-labelledby="hero-title">
-          <img class="hero-img abs" src="assets/img/hero-hoop.png" width="1400" height="1532" alt="Claude Monet's Japanese footbridge, stitched in embroidery inside a wooden hoop" fetchpriority="high">
-          <h1 class="title abs" id="hero-title">Bridges</h1>
-          <p class="tagline abs">Celebrating community, connection and creativity</p>
-          <p class="date abs">June 13 &ndash; August 31 2027</p>
+          <h1 class="title abs" id="hero-title">Newton Arts and Fiber Walk</h1>
           <p class="intro abs">A temporary outdoor exhibition along the Charles River in the Auburndale section of Newton.</p>
+          <p class="date abs">June 13 &ndash; August 31 2027</p>
+          <p class="tagline abs">Bridges: Celebrating community, connection, and creativity</p>
+          <img class="hero-slats abs" src="assets/img/hero-slats.png" width="1134" height="747" alt="Five photos of the Auburndale trails: a wooded path, a detail of a pink painting, a new boardwalk, chunky gray and green wool, and a view across the water" fetchpriority="high">
         </section>
 
         <section class="story" aria-label="About the exhibition">
@@ -61,9 +63,9 @@
           <p class="copy copy--1 abs">The Newton Arts &amp; Fiber walk will be a temporary public art installation along the Marty Sender Greenway and Auburndale Cove path along the Charles River. The theme, "Bridges," celebrates the power of community, connection, creativity, as well as the historical waterways of our city.</p>
           <p class="copy copy--2 abs">This project aims to make art accessible to the general public, engage the community in both visual and hands-on activities, promote local artists, and highlight the beauty and utility of one of Newton’s most valued public spaces.</p>
 
-          <img class="art art--crochet abs" src="assets/img/crochet.jpg" width="1400" height="867" alt="Crocheted and embroidered flowers in coral, purple and teal" loading="lazy">
           <img class="art art--stitch abs" src="assets/img/stitch.jpg" width="1200" height="675" alt="Close-up of colorful embroidery stitches" loading="lazy">
           <img class="art art--yarn abs" src="assets/img/yarn.jpg" width="600" height="840" alt="Skeins of cream, tan and pink yarn" loading="lazy">
+          <img class="art art--lily abs" src="assets/img/lily.jpg" width="900" height="1200" alt="Lily of the valley blooming among broad green leaves" loading="lazy">
           <img class="art art--pink abs" src="assets/img/pink-figure.jpg" width="900" height="904" alt="Painting of a curled pink figure framed by flowers on a weathered wood table" loading="lazy">
           <img class="art art--leaves abs" src="assets/img/leaves.jpg" width="1100" height="733" alt="Close-up of a backlit green leaf showing its veins" loading="lazy">
           <img class="art art--snakes abs" src="assets/img/snakes.jpg" width="700" height="700" alt="Painting of a black and a white spotted eel intertwined on a blue background" loading="lazy">
@@ -77,16 +79,15 @@
       <p class="volunteer abs">This is a volunteer effort supported entirely by donations and grants. Help us support art in Newton!</p>
       <a class="btn-donate abs" href="https://www.paypal.com/ncp/payment/EUKH9AJTEJMZL" target="_blank" rel="noopener">DONATE</a>
 
-      <div class="slats abs" role="img" aria-label="Five photos of the Auburndale trails: a new boardwalk, a wooded path, lily of the valley, a pine grove and a view across the water">
-        <span class="slat"></span><span class="slat"></span><span class="slat"></span><span class="slat"></span><span class="slat"></span>
+      <img class="hoop abs" src="assets/img/hero-hoop.png" width="1199" height="1312" alt="Claude Monet's Japanese footbridge, stitched in embroidery inside a wooden hoop" loading="lazy">
+      <div class="credits abs">
+        <p class="committee">Newton Arts &amp; Fiber Planning Committee</p>
+        <ul class="names">
+          <li>SUSAN KATCHER</li>
+          <li>STACEY MORIARTY</li>
+          <li>ALLA WEBSTER</li>
+        </ul>
       </div>
-      <p class="committee abs">Newton Arts &amp; Fiber Planning Committee</p>
-      <ul class="names abs">
-        <li>SUSAN KATCHER</li>
-        <li>STACEY MORIARTY</li>
-        <li>ALLA WEBSTER</li>
-      </ul>
-
     </footer>
   </div>
 
