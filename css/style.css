@@ -3,14 +3,6 @@
    written in design pixels multiplied by --u (= 1/1920 of the page width), so
    the layout scales fluidly. Below 860px it switches to a stacked mobile layout. */
 
-@font-face {
-  font-family: "Lastik";
-  src: url("../assets/fonts/Lastik.otf") format("opentype");
-  font-weight: 400;
-  font-style: normal;
-  font-display: swap;
-}
-
 /* Avenir is licensed, so it is used where the visitor's device already has it
    (Apple devices). Everyone else gets Nunito Sans from Google Fonts. */
 @font-face {
@@ -21,23 +13,32 @@
 }
 @font-face {
   font-family: "Avenir UI";
+  src: local("Avenir-Medium"), local("Avenir Medium");
+  font-weight: 500;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Avenir UI";
   src: local("Avenir-Heavy"), local("Avenir Heavy");
   font-weight: 800;
   font-style: normal;
+}
+@font-face {
+  font-family: "Avenir UI";
+  src: local("Avenir-Oblique"), local("Avenir Oblique");
+  font-weight: 400;
+  font-style: italic;
 }
 
 :root {
   --cream: #fbf8f1;
   --navy: #0d3642;
-  --green: #748d6b;
-  --green-dark: #323d2f;
-  --green-ink: #252c22;
-  --leaf: #2c7a0f;
+  --grass: #6dab58;
+  --teal: #188698;
+  --forest: #0b4a25;
+  --leaf: #0f4b1d;
 
   --font-ui: "Avenir UI", "Nunito Sans", "Avenir Next", "Helvetica Neue", Arial, sans-serif;
-  --font-serif: "Instrument Serif", Georgia, serif;
-  --font-date: "Brygada 1918", Georgia, serif;
-  --font-body: "Lastik", Georgia, serif;
 }
 
 *,
@@ -54,7 +55,7 @@ body {
   margin: 0;
   background: var(--cream);
   color: var(--navy);
-  font-family: var(--font-body);
+  font-family: var(--font-ui);
   -webkit-font-smoothing: antialiased;
 }
 
@@ -117,6 +118,10 @@ a {
 .canvas {
   height: calc(2949.78 * var(--u));
   overflow: hidden;
+  background: var(--grass);
+}
+.canvas--sub {
+  background: var(--cream);
 }
 
 .abs {
@@ -131,6 +136,14 @@ a {
 }
 
 /* ---------- Header ---------- */
+
+.header-band {
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: calc(229.49 * var(--u));
+  background: var(--cream);
+}
 
 .logo {
   left: calc(39.36 * var(--u));
@@ -210,45 +223,46 @@ a {
 
 .title,
 .intro,
-.date,
-.tagline {
+.tagline,
+.date {
   text-align: center;
   line-height: normal;
 }
 
 .title {
-  left: calc(81.84 * var(--u));
-  top: calc(258.56 * var(--u));
-  width: calc(878.16 * var(--u));
-  font-family: var(--font-serif);
-  font-style: italic;
-  font-weight: 400;
-  font-size: calc(88 * var(--u));
+  left: calc(39.36 * var(--u));
+  top: calc(334.51 * var(--u));
+  width: calc(961.23 * var(--u));
+  font-weight: 500;
+  font-size: calc(64 * var(--u));
 }
 
 .intro {
-  left: calc(151.8 * var(--u));
-  top: calc(369.27 * var(--u));
-  width: calc(738.24 * var(--u));
-  font-size: calc(32 * var(--u));
+  left: calc(109 * var(--u));
+  top: calc(438.97 * var(--u));
+  width: calc(827.01 * var(--u));
+  color: var(--forest);
+  font-size: calc(35.85 * var(--u));
 }
 
-.date {
-  left: calc(81.84 * var(--u));
-  top: calc(510.54 * var(--u));
-  width: calc(878.16 * var(--u));
-  font-family: var(--font-date);
-  font-weight: 600;
-  font-size: calc(32 * var(--u));
+.tagline-group {
+  left: calc(192.79 * var(--u));
+  top: calc(581.4 * var(--u));
+  width: calc(654.37 * var(--u));
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: calc(12.32 * var(--u));
 }
-
 .tagline {
-  left: calc(177.88 * var(--u));
-  top: calc(594.37 * var(--u));
-  width: calc(686.08 * var(--u));
-  font-family: var(--font-serif);
-  font-style: italic;
-  font-size: calc(56 * var(--u));
+  flex: none;
+  width: calc(867.07 * var(--u));
+  font-size: calc(44.81 * var(--u));
+}
+.date {
+  width: 100%;
+  color: var(--forest);
+  font-size: calc(35.85 * var(--u));
 }
 
 .hero-slats {
@@ -262,7 +276,7 @@ a {
 
 .river-art {
   left: calc(-181.44 * var(--u));
-  top: calc(881.66 * var(--u));
+  top: calc(886.03 * var(--u));
   width: calc(2164.1 * var(--u));
   height: calc(2060 * var(--u));
   pointer-events: none;
@@ -273,14 +287,14 @@ a {
 }
 .river-art .river {
   left: 0;
-  top: calc(62.41 * var(--u));
+  top: calc(58.04 * var(--u));
   width: calc(2164.02 * var(--u));
 }
 .river-art .path {
-  left: calc(75.74 * var(--u));
+  left: calc(111.64 * var(--u));
   top: 0;
-  width: calc(2036.8 * var(--u));
-  height: calc(1935.2 * var(--u));
+  width: calc(2000.99 * var(--u));
+  height: calc(1930.86 * var(--u));
 }
 
 /* Single combined river + path drawing, only used on mobile (see media query) */
@@ -291,19 +305,11 @@ a {
 .about {
   left: calc(55.95 * var(--u));
   top: calc(1253.42 * var(--u));
-  font-family: var(--font-ui);
   font-weight: 400;
   font-size: calc(80 * var(--u));
   letter-spacing: calc(-1.6 * var(--u));
   line-height: normal;
   white-space: nowrap;
-}
-
-/* Cream outline keeps the About text legible where it crosses the river */
-.about,
-.copy {
-  -webkit-text-stroke: 6px var(--cream);
-  paint-order: stroke fill;
 }
 
 .copy {
@@ -314,9 +320,10 @@ a {
 }
 .copy--1 {
   top: calc(1375.83 * var(--u));
+  width: calc(513.59 * var(--u));
 }
 .copy--2 {
-  top: calc(1779 * var(--u));
+  top: calc(1808.77 * var(--u));
 }
 
 /* DOM order below is the stacking order (back to front) */
@@ -325,10 +332,11 @@ a {
   object-fit: cover;
 }
 .art--stitch {
-  left: calc(773.26 * var(--u));
-  top: calc(1036.44 * var(--u));
-  width: calc(513.6 * var(--u));
-  height: calc(288.9 * var(--u));
+  left: calc(769.88 * var(--u));
+  top: calc(1041.7 * var(--u));
+  width: calc(532.89 * var(--u));
+  height: calc(290.67 * var(--u));
+  border-radius: 0;
 }
 .art--yarn {
   left: calc(784.8 * var(--u));
@@ -337,11 +345,12 @@ a {
   height: calc(507.16 * var(--u));
 }
 .art--lily {
-  left: calc(433.81 * var(--u));
-  top: calc(2104.77 * var(--u));
-  width: calc(385.06 * var(--u));
-  height: calc(651.24 * var(--u));
+  left: calc(416.35 * var(--u));
+  top: calc(2139.39 * var(--u));
+  width: calc(386.27 * var(--u));
+  height: calc(652.01 * var(--u));
   border-radius: 0;
+  object-position: 16.6% 50%;
 }
 .art--pink {
   left: calc(55.95 * var(--u));
@@ -366,62 +375,60 @@ a {
 
 .contact {
   height: calc(842.83 * var(--u));
-  background: var(--green);
+  background: var(--teal);
 }
 
 .contact-title {
   left: calc(134.29 * var(--u));
   top: calc(51.15 * var(--u));
-  width: calc(904.06 * var(--u));
-  color: var(--green-dark);
-  font-family: var(--font-serif);
+  width: calc(950.39 * var(--u));
+  color: var(--navy);
   font-style: italic;
   font-weight: 400;
-  font-size: calc(120 * var(--u));
+  font-size: calc(80 * var(--u));
   line-height: normal;
 }
 
 .contact-info {
   left: calc(134.29 * var(--u));
-  top: calc(372.52 * var(--u));
-  width: calc(994.69 * var(--u));
+  top: calc(343.36 * var(--u));
+  width: calc(854.02 * var(--u));
   color: var(--cream);
-  font-size: calc(48 * var(--u));
+  font-size: calc(40 * var(--u));
   line-height: normal;
 }
 .contact-info a {
-  text-decoration: none;
-  background: linear-gradient(currentColor, currentColor) 0 100% / 0 0.05em no-repeat;
-  transition: background-size 0.25s ease;
+  text-decoration: underline;
+  text-underline-position: from-font;
+  text-decoration-thickness: from-font;
+  transition: text-underline-offset 0.2s ease;
 }
 .contact-info a:hover,
 .contact-info a:focus-visible {
-  background-size: 100% 0.05em;
+  text-underline-offset: 0.14em;
 }
 
 .volunteer {
-  left: calc(134.29 * var(--u));
-  top: calc(524.08 * var(--u));
+  left: calc(124.34 * var(--u));
+  top: calc(708.07 * var(--u));
   width: calc(776.26 * var(--u));
-  color: var(--green-dark);
-  font-family: var(--font-serif);
+  color: var(--navy);
   font-style: italic;
-  font-size: calc(40 * var(--u));
+  font-size: calc(32 * var(--u));
   line-height: normal;
 }
 
 .btn-donate {
-  left: calc(134.29 * var(--u));
-  top: calc(659.02 * var(--u));
+  left: calc(124.34 * var(--u));
+  top: calc(553.7 * var(--u));
   width: calc(675.94 * var(--u));
   height: calc(131.05 * var(--u));
   display: flex;
   align-items: center;
   justify-content: center;
   border-radius: calc(8.36 * var(--u));
-  background: var(--green-dark);
+  background: var(--navy);
   color: var(--cream);
-  font-family: var(--font-ui);
   font-weight: 800;
   font-size: calc(64 * var(--u));
   line-height: normal;
@@ -430,7 +437,7 @@ a {
 }
 .btn-donate:hover {
   background: var(--cream);
-  color: var(--green-dark);
+  color: var(--navy);
 }
 .btn-donate:active {
   transform: translateY(2px);
@@ -445,25 +452,23 @@ a {
 }
 
 .credits {
-  left: calc(1138.62 * var(--u));
-  top: calc(676.07 * var(--u));
-  width: calc(647.09 * var(--u));
-  text-align: center;
+  left: calc(1158.67 * var(--u));
+  top: calc(674.07 * var(--u));
+  color: var(--navy);
 }
 .committee {
-  color: var(--green-ink);
-  font-family: var(--font-serif);
-  font-style: italic;
-  font-weight: 400;
+  font-weight: 500;
   font-size: calc(32 * var(--u));
-  line-height: 1.3125;
+  line-height: normal;
   white-space: nowrap;
 }
 .names {
   display: flex;
-  justify-content: center;
+  align-items: center;
   gap: calc(32.87 * var(--u));
-  font-family: var(--font-ui);
+  width: calc(567 * var(--u));
+  height: calc(78 * var(--u));
+  margin-left: calc(20 * var(--u));
   font-weight: 400;
   font-size: calc(24 * var(--u));
   letter-spacing: calc(-0.24 * var(--u));
@@ -502,7 +507,6 @@ a {
   letter-spacing: 0.04em;
 }
 .soon h1 {
-  font-family: var(--font-serif);
   font-style: italic;
   font-weight: 400;
   font-size: calc(300 * var(--u));
@@ -554,6 +558,10 @@ a {
     align-items: center;
     gap: 12px;
     padding: 14px 20px;
+    background: var(--cream);
+  }
+  .header-band {
+    display: none;
   }
   .logo {
     width: 112px;
@@ -632,8 +640,8 @@ a {
   .title {
     order: 1;
     width: auto;
-    font-size: clamp(36px, 10.26vw, 88px);
-    line-height: 1.167;
+    font-size: clamp(30px, 9vw, 64px);
+    line-height: 1.2;
     text-wrap: balance;
   }
   .intro {
@@ -644,20 +652,21 @@ a {
     font-size: clamp(16px, 4.1vw, 28px);
     line-height: 1.58;
   }
-  .tagline {
+  .tagline-group {
     order: 3;
+    display: block;
     width: auto;
     margin-top: 18px;
-    font-size: clamp(26px, 7.2vw, 48px);
-    line-height: 1.1;
+  }
+  .tagline {
+    width: auto;
+    font-size: clamp(22px, 5.8vw, 38px);
+    line-height: 1.2;
     text-wrap: balance;
   }
   .date {
-    order: 4;
     width: auto;
     margin-top: 8px;
-    font-family: var(--font-body);
-    font-weight: 400;
     font-size: clamp(18px, 4.8vw, 26px);
   }
   .hero-slats {
@@ -724,6 +733,7 @@ a {
     border-radius: 4px;
   }
   .art--stitch {
+    border-radius: 0;
     order: 3;
     align-self: flex-start;
     width: calc(200 * var(--k));
@@ -743,7 +753,8 @@ a {
     width: calc(196 * var(--k));
     aspect-ratio: 1;
   }
-  .art--yarn {
+  .story > .art--yarn {
+    z-index: 0;
     order: 7;
     align-self: flex-end;
     width: calc(168 * var(--k));
@@ -775,7 +786,7 @@ a {
   .contact-title {
     order: 0;
     width: auto;
-    font-size: clamp(56px, 18vw, 120px);
+    font-size: clamp(40px, 12.5vw, 80px);
     line-height: 1.02;
   }
   .contact-info {
@@ -789,7 +800,7 @@ a {
     order: 2;
     width: auto;
     margin-top: 24px;
-    font-size: clamp(26px, 7vw, 38px);
+    font-size: clamp(22px, 5.8vw, 32px);
     line-height: 1.15;
   }
   .btn-donate {
@@ -813,12 +824,17 @@ a {
     order: 5;
     width: auto;
     margin-top: 16px;
+    text-align: center;
   }
   .committee {
     font-size: clamp(22px, 6vw, 32px);
     white-space: normal;
   }
   .names {
+    justify-content: center;
+    width: auto;
+    height: auto;
+    margin-left: 0;
     gap: 16px;
     margin-top: 10px;
     font-size: clamp(18px, 5.2vw, 24px);
