@@ -317,6 +317,11 @@ a {
   width: calc(536.22 * var(--u));
   font-size: calc(32 * var(--u));
   line-height: normal;
+  /* Figma: 7px outside stroke in the page green. CSS strokes are centered, so
+     double it and paint the fill on top to leave 7px showing outside. */
+  -webkit-text-stroke: calc(14 * var(--u)) var(--grass);
+  paint-order: stroke fill;
+  stroke-linejoin: round;
 }
 .copy--1 {
   top: calc(1375.83 * var(--u));
@@ -716,6 +721,7 @@ a {
     line-height: 1.2;
   }
   .copy {
+    -webkit-text-stroke-width: 8px;
     width: auto;
     font-size: clamp(20px, 5.13vw, 30px);
     line-height: 1.35;
